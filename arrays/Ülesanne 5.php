@@ -21,16 +21,15 @@ echo  "Parim tulemus oli: ".max($pallivisked)."<br/>";
 echo "Parima tulemuse sai: ".$nimed[array_keys($pallivisked,max($pallivisked),true)[0]]."<br/>"."<br/>";
 
 // Raamatud
-
 $raamatud = array(
     array("Pealkiri"=>"Konstitutsioon", "Autor"=>"J.Stalin", "Aasta"=>"1944"),
     array("Pealkiri"=>"Rahvasõbrad", "Autor"=>"V.I.Lenin", "Aasta"=>"1951"),
     array("Pealkiri"=>"Leninismi alustest", "Autor"=>"J.Stalin", "Aasta"=>"1945")
 );
 array_multisort(array_column($raamatud, "Pealkiri"), SORT_ASC, $raamatud);
-foreach ($raamatud as $raamat=>$andmed){
+foreach ($raamatud as $raamat){
     echo "Raamat: ";
-    foreach($andmed as $meta=>$vaartus){
+    foreach($raamat as $meta=>$vaartus){
         echo "$meta: $vaartus&#9;";
     }
     echo "<br>";
