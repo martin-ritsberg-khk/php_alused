@@ -51,9 +51,17 @@
     echo preg_replace($pattern,"***",$replace);
     echo "<br>";
 
-    $badletters = ["ö", "ä", "ü", "õ"];
-    $pattern2 = '/\b('.implode('|', $badletters).')/i';
-    $email = preg_replace($pattern2,"***",$email);
+    $badletters = [
+        "ö" => "o",
+        "ä" => "a",
+        "ü" => "y",
+        "õ" => "o",
+        "Ö" => "O",
+        "Ä" => "A",
+        "Ü" => "Y",
+        "Õ" => "O"
+    ];
+    $email = strtr($email,$badletters);
     if (count(str_word_count($email, 1))>1) {
         echo current(str_word_count($email, 1)).".".end(str_word_count($email, 1))."@khk.ee";
     } elseif (count(str_word_count($email, 1))==1) {
