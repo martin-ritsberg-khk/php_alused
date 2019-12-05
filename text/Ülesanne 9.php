@@ -61,7 +61,7 @@
         "Ü" => "Y",
         "Õ" => "O"
     ];
-    $email = strtr($email,$badletters);
+    $email = strtolower(strtr($email,$badletters));
     if (count(str_word_count($email, 1))>1) {
         echo current(str_word_count($email, 1)).".".end(str_word_count($email, 1))."@khk.ee";
     } elseif (count(str_word_count($email, 1))==1) {
