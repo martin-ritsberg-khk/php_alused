@@ -16,18 +16,19 @@ require_once "output.php";
 $ikt = connect(HOST,USER,PASS,DB);
 mysqli_set_charset($ikt,"utf8");
 
-echo "<pre>";
-//print_r($ikt);
-$result = get_data("select kool, kokku from koolid2015", $ikt);
+$sql= 'INSERT INTO kliendid SET '.
+    'enimi = "Karu", '.
+    'pnimi = "Poeg", '.
+    'kontakt = "karupoeg@puhh.ee"';
 
-echo '<h1>Harujutus 1</h1>';
-echo '<p>Ridu kokku: '.count($result).'</p>';
+$result = query($sql,$ikt);
+if($result){
+    echo "<p>Andmebaasis on listatud ".mysqli_affected_rows($ikt)." ridu</p>";
+    echo "<p>Viimane muutetud ID on ".mysqli_insert_id($ikt)."</p>";
+}
 
-table($result);
-
-echo "<pre/>";
 
 ?>
 
 </body>
-</html>
+</html><?php

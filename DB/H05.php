@@ -16,18 +16,18 @@ require_once "output.php";
 $ikt = connect(HOST,USER,PASS,DB);
 mysqli_set_charset($ikt,"utf8");
 
-echo "<pre>";
-//print_r($ikt);
-$result = get_data("select kool, kokku from koolid2015", $ikt);
+$sql= 'INSERT INTO kliendid SET '.
+    'enimi = "!add1!", '.
+    'pnimi = "!add2!", '.
+    'kontakt = "!add3!"';
+$sql2 = 'SELECT * FROM kliendid';
 
-echo '<h1>Harujutus 1</h1>';
-echo '<p>Ridu kokku: '.count($result).'</p>';
+if (addDataForm($sql, $ikt, "Eesnimi", "Perenimi", "Kontakt")){
+    table(get_data(@$sql2,$ikt));
+};
 
-table($result);
-
-echo "<pre/>";
 
 ?>
 
 </body>
-</html>
+</html><?php
