@@ -89,7 +89,7 @@ require_once "H10/client_table.php";
 <script>
     let gID;
     function newRow(){
-        if(document.getElementById("enimi").value != "" && document.getElementById("pnimi").value != "" && document.getElementById("kontakt").value != "") {
+        if(document.getElementById("enimi").value !== "" && document.getElementById("pnimi").value !== "" && document.getElementById("kontakt").value !== "") {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
@@ -120,7 +120,7 @@ require_once "H10/client_table.php";
         document.getElementById("change-row").classList.remove("hide");
     }
     function commitChange(ID=gID){
-        if(document.getElementById("enimi-change").value != "" && document.getElementById("pnimi-change").value != "" && document.getElementById("kontakt-change").value != ""){
+        if(document.getElementById("enimi-change").value !== "" && document.getElementById("pnimi-change").value !== "" && document.getElementById("kontakt-change").value !== ""){
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
